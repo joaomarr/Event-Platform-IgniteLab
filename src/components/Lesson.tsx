@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 interface LessonProps {
     title: string;
+    isSelected: boolean;
     slug: string;
     availableAt: Date;
     type: 'live' | 'class';
@@ -22,7 +23,7 @@ export function Lesson(props: LessonProps) {
                 {availableDateFormatted}
             </span>
 
-            <div className="roudned border border-gray-500 p-4 mt-2">
+            <div className={"rounded p-4 mt-2 " + (props.isSelected ? "bg-blue-900 text-zinc-100" : "border border-gray-500")}>
                 <header className="flex items-center justify-between">
                     {isLessonAvailable ? (
                     <span className="text-sm text-blue-500 font-medium flex items-center gap-2">
